@@ -1,0 +1,79 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Get upcoming holidays",
+    "description": "get the user's upcoming holiday",
+    "version": "0.0.1"
+  },
+  "servers": [
+    {
+      "url": "https://application-8b.1k4k4t5r87u4.us-south.codeengine.appdomain.cloud",
+      "description": "IP address and port without encryption/authentication",
+      "variables": {
+        "local_url": {
+          "default": "0.0.0.0:8001",
+          "description": "The portions of URL that follow http://"
+        }
+      }
+    }
+  ],
+  "paths": {
+    "/get_upcoming_holidays": {
+      "post": {
+        "summary": "Post query to retrieve data",
+        "description": "get the user's upcoming holiday",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_query": {
+                    "type": "string",
+                    "description": "get the user's upcoming holiday"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response with data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The name of the holiday"
+                          },
+                          "date": {
+                            "type": "string",
+                            "format": "date",
+                            "description": "The date of the holiday in YYYY-MM-DD format"
+                          }
+                        }
+                      },
+                      "description": "List of holidays"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error"
+          }
+        }
+      }
+    }
+  }
+}

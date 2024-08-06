@@ -1,0 +1,9 @@
+WATSONX_APIKEY=
+WATSONX_PROJECT_ID=
+IBM_CLOUD_URL
+es_endpoint=
+es_cert_path=
+emb_ibm_cloud_url
+emb_api_key=
+emb_space_id=
+deployment_id=

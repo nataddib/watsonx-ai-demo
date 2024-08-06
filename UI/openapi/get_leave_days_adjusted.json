@@ -1,0 +1,82 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Get leave current user leave days",
+    "description": "Get user holiday from the database",
+    "version": "0.0.1"
+  },
+  "servers": [
+    {
+      "url": "https://application-8b.1k4k4t5r87u4.us-south.codeengine.appdomain.cloud",
+      "description": "IP address and port without encryption/authentication",
+      "variables": {
+        "local_url": {
+          "default": "0.0.0.0:8001",
+          "description": "The portions of URL that follow http://"
+        }
+      }
+    }
+  ],
+  "paths": {
+    "/get_leave_days": {
+      "post": {
+        "summary": "Post query to retrieve data",
+        "description": "Get user holiday from the database",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_query": {
+                    "type": "string",
+                    "description": "Get user holiday from the database"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response with data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "object",
+                      "properties": {
+                        "casual_leave_taken": {
+                          "type": "string",
+                          "description": "Casual leave taken"
+                        },
+                        "casual_leave_left": {
+                          "type": "string",
+                          "description": "Casual leave left"
+                        },
+                        "earned_leave_taken": {
+                          "type": "string",
+                          "description": "Earned leave taken"
+                        },
+                        "earned_leave_left": {
+                          "type": "string",
+                          "description": "Earned leave left"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error"
+          }
+        }
+      }
+    }
+  }
+}
