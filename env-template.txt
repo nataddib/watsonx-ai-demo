@@ -1,8 +1,8 @@
-WATSONX_APIKEY=
-WATSONX_PROJECT_ID=
-IBM_CLOUD_URL
-es_endpoint=
-es_cert_path=
+WATSONX_APIKEY='8VX7J1E85RsP_SPYiUMkWs2RJUX7O4mK9sX8CbHVzOc8'
+WATSONX_PROJECT_ID='ef25c326-c45b-4df7-a3e5-31c94b4fd777'
+IBM_CLOUD_URL= 'https://us-south.ml.cloud.ibm.com'
+es_endpoint='https://ibm_cloud_e8a240af_6263_497a_9aeb_dfdf58e2daa3:96a56bb0ecfc311d45003f797f2caaa4ef9c0bf1fdfa3376923da5f21b580763@d00105d4-a8e4-4629-ac13-2ab8ec4243aa.bqfh4fpt0vhjh7rs4ot0.databases.appdomain.cloud:30304
+es_cert_path='20accfbb-5bcd-4edc-aacf-ca14822b8b02.pem'
 emb_ibm_cloud_url
 emb_api_key=
 emb_space_id=

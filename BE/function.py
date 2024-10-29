@@ -18,13 +18,12 @@ api_key = os.environ["WATSONX_APIKEY"]
 project_id = os.environ["WATSONX_PROJECT_ID"]
 ibm_cloud_url = os.environ["IBM_CLOUD_URL"]
 
-
 emb_creds = {
     "url": emb_ibm_cloud_url,
     "apikey": emb_api_key 
 }
 
-LLM_model_id =  "meta-llama/llama-3-70b-instruct"
+LLM_model_id =  "meta-llama/llama-3-1-70b-instruct"
 creds = {
         "url": ibm_cloud_url,
         "apikey": api_key
@@ -36,7 +35,7 @@ def connect_watsonx_llm(model_id_llm):
 	params = {
         'decoding_method': "greedy",
         'min_new_tokens': 1,
-        'max_new_tokens': 400,
+        'max_new_tokens': 1200,
         'temperature': 0.0,
         'repetition_penalty': 1
     },
@@ -63,14 +62,14 @@ def scoring_embedder(sentence):
     return client.deployments.score(deployment_id, payload)["predictions"][0]["values"][0][1]
 
 
-def semantic_search(search_term, top_k = 3, index_name="hr-policy-index"):
+def semantic_search(search_term, top_k = 3, index_name="dc_safety-policy-index"):
     """
     Perform a semantic search on the specified Elasticsearch index using the given search term.
 
     Args:
     search_term (str): The search term for the semantic search.
     top_k (int, optional) : The number of document want to retrieve from the elastic database
-    index_name (str, optional): The name of the Elasticsearch index to search. Default is "hr-policy-index".
+    index_name (str, optional): The name of the Elasticsearch index to search. Default is "dc_safety-policy-index".
     Returns:
     dict: A dictionary with different relevant sources
 

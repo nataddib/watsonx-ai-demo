@@ -4,9 +4,9 @@ import traceback
 from flask import Flask, request, Response, jsonify, make_response
 import json
 import time
-
+#chages
 app = Flask(__name__)
-model_id_llm='meta-llama/llama-3-70b-instruct'
+model_id_llm='meta-llama/llama-3-1-70b-instruct'
 model_llm = connect_watsonx_llm(model_id_llm)
 
 @app.route('/get_upcoming_holidays', methods=['POST'])
@@ -23,7 +23,7 @@ def query_leave_days():
 def finding_documents():
     data = request.json
     question = data["user_query"]
-    relevant_documents = semantic_search(question, 5, "hr-policy-index")
+    relevant_documents = semantic_search(question, 5, "dc_safety-policy-index")
     prompt = prompt_gen(question, relevant_documents)
     print(prompt)
     start_time = time.time()
