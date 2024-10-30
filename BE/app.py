@@ -70,6 +70,6 @@ def stream():
         return jsonify({"error": "Error processing request data"}), 400
 
     return Response(generate_stream(**data), content_type='text/event-stream')
-
+    
 if __name__ == '__main__':
-    app.run(debug=True, port=8001, host="0.0.0.0")
+    app.run(debug=True, port=8002, host="0.0.0.0")
